@@ -1,0 +1,10 @@
+<%- include('header') -%>
+<div>
+    <ul>
+        <% Object.keys(user).forEach(k => { %>
+            <li><strong><%= k%></strong>: <%= user[k] %></li>
+        <% }); %>
+    </ul>
+    <%= JSON.stringify(user) %>
+</div>
+<%- include('footer') -%>

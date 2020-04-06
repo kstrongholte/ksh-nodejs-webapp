@@ -1,0 +1,16 @@
+<%- include('header') -%>
+<table border="1">
+  <tr>
+    <% Object.keys(expenses[0]).forEach(k => { %>
+      <th><strong><%= k %></strong></th>
+    <% }) %>
+  </tr>
+  <% expenses.forEach(expense => { %>
+    <tr>
+      <% Object.keys(expense).forEach(k => { %>
+        <td><%= expense[k] %></td>
+      <% }) %>
+    </tr>
+  <% }) %>
+</table>
+<%- include('footer') -%>

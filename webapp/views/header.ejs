@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet"  type="text/css" href="/css/default.css">
+        <title>nodejs-expenses - <%= title %></title>
+    </head>
+    <body>
+        <div>
+            <% if (user) { %> 
+                <span>Logged in as</span>&nbsp;<span style="font-weight: bold;"><%= user.user_id %></span>
+                <button onclick="window.location='/logout'">Log out</button>
+                <button onclick="window.location='/logout/local'">Log out (local)</button>
+                <button onclick="window.location='/logout/auth0'">Log out (Auth0)</button>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/user">User Profile</a></li>
+                    <li><a href="/expenses">Expenses</a></li>
+                </ul>
+            <% } else { %>
+                <button onclick="window.location='/login'">Log in (default)</button>
+                <button onclick="window.location='/login/ksh-idp'">Log in (ksh-idp)</button>
+            <% } %>
+        </div>
