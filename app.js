@@ -47,6 +47,7 @@ passport.deserializeUser(function(user, done) {
 const app = express();
 const appUrl = process.env.BASE_URL || `http://localhost:${process.env.PORT}`;
 
+app.enable('trust proxy', true);
 app.set('view engine', 'ejs');
 
 const expressSess = {
