@@ -25,11 +25,10 @@ const auth0Strategy = new Auth0Strategy(
     domain: process.env.AUTH0_DOMAIN,
     clientID: process.env.AUTH0_CLIENT_ID,
     clientSecret: process.env.AUTH0_CLIENT_SECRET,
-    callbackURL: process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000/callback',
+    callbackURL: process.env.AUTH0_CALLBACK_URL,
     connection: 'Username-Password-Authentication'
   },
   (accessToken, refreshToken, extraParams, profile, done) => {
-    console.log(extraParams);
     return done(null, profile);
   }
 );
@@ -45,7 +44,7 @@ passport.deserializeUser(function(user, done) {
 });
 
 const app = express();
-const appUrl = process.env.BASE_URL || `http://localhost:${process.env.PORT}`;
+const appUrl = process.env.BASE_URL;
 
 app.enable('trust proxy', true);
 app.set('view engine', 'ejs');
@@ -72,7 +71,7 @@ app.use('/', expensesRouter);
 app.use('/', continueRouter);
 app.use('/', verifyEmailRouter);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 http.createServer(app).listen(PORT, () => {
     console.log(`listening on ${PORT}`);
 });
