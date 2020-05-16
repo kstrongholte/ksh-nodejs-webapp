@@ -43,7 +43,7 @@ router.get('/logout', (req, res) => {
   var returnTo = req.protocol + '://' + req.hostname;
   var port = process.env.PORT;
 
-  returnTo += ':' + port;
+  //returnTo += ':' + port;
 
   var logoutURL = new url.URL(util.format('https://%s/v2/logout', process.env.AUTH0_DOMAIN));
   var searchString = querystring.stringify({
