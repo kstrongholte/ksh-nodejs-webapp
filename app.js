@@ -29,7 +29,7 @@ const auth0Strategy = new Auth0Strategy(
     connection: 'Username-Password-Authentication'
   },
   (accessToken, refreshToken, extraParams, profile, done) => {
-    console.log(accessToken);
+    console.log(extraParams);
     return done(null, profile);
   }
 );
